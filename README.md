@@ -467,7 +467,7 @@ customer-churn-prediction/
 # 🤖 Machine Learning Pipeline
 
 <p align="center">
-<img src="assets/ml_pipeline.png" width="95%">
+<img src="assets/Ml_pipeline.png" width="95%">
 </p>
 
 ---
