@@ -487,14 +487,12 @@ The trained preprocessing steps and classification model are combined into a sin
 - Load customer dataset
 - Verify data quality
 
-         ↓
 
 ### 🧹 Data Cleaning
 
 - Handle missing values
 - Remove inconsistencies
 
-         ↓
 
 ### ⚙ Feature Engineering
 
@@ -502,20 +500,17 @@ The trained preprocessing steps and classification model are combined into a sin
 - Scale numerical features
 - Generate model-ready features
 
-         ↓
 
 ### ⚖ Handle Class Imbalance
 
 - Apply SMOTE
 - Balance churn and non-churn classes
 
-         ↓
 
 ### ✂ Train-Test Split
 
 - Stratified train-test split
 
-         ↓
 
 ### 🤖 Model Training
 
@@ -523,7 +518,6 @@ The trained preprocessing steps and classification model are combined into a sin
 - Hyperparameter tuning
 - Cross Validation
 
-         ↓
 
 ### 📊 Model Evaluation
 
@@ -533,7 +527,6 @@ The trained preprocessing steps and classification model are combined into a sin
 - F1 Score
 - ROC-AUC
 
-         ↓
 
 ### 💾 Model Serialization
 
