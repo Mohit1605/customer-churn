@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Customer Churn Prediction Banner" width="100%">
+  <img src="assets/Banner.png" alt="Customer Churn Prediction Banner" width="100%">
 </p>
 
 <h1 align="center">
@@ -16,7 +16,6 @@ An End-to-End Machine Learning application that predicts customer churn using a 
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange?style=for-the-badge&logo=scikitlearn)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-red?style=for-the-badge&logo=streamlit)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 </p>
 
@@ -323,7 +322,7 @@ The following preprocessing steps were performed before model training:
 # 🏗 System Architecture
 
 <p align="center">
-<img src="assets/architecture.png" width="95%">
+<img src="assets/Architecture.png" width="95%">
 </p>
 
 ---
