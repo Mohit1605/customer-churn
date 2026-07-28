@@ -4,7 +4,8 @@ from app.core.model import get_model
 from app.schemas.request import CustomerChurnRequest
 from app.schemas.response import CustomerChurnResponse
 from app.utils.logger import logger
-
+from app.services.shap_services import generate_explanation
+from app.core.shap_loader import get_classifier, get_preprocessor
 
 SENIOR_CITIZEN_MAP = {
     "No": 0,
@@ -75,12 +76,20 @@ def predict_customer_churn(request: CustomerChurnRequest,) -> CustomerChurnRespo
     df = pd.DataFrame([data])
 
     df = create_features(df)
-    logger.info("Data",df)
+    # logger.info("Data",df)
     logger.info("Running prediction...")
 
-    prediction = int(model.predict(df)[0])
+    preprocessor = get_preprocessor()
 
-    probability = float(model.predict_proba(df)[0][1])
+    classifier = get_classifier()
+
+    encoded_customer  = preprocessor.transform(df)
+
+    prediction = int(classifier.predict(encoded_customer )[0])
+
+    probability = float(classifier.predict_proba(encoded_customer )[0][1])
+
+    top_features = generate_explanation(transformed_customer=encoded_customer,original_customer=df,)
 
     prediction_label = PREDICTION_MAP.get(prediction, "Unknown")
 
@@ -89,10 +98,11 @@ def predict_customer_churn(request: CustomerChurnRequest,) -> CustomerChurnRespo
     logger.info("Prediction completed successfully.")
 
     return CustomerChurnResponse(
-            prediction=prediction_label,
-            prediction_probability=round(probability, 4),
-            confidence=confidence,
-            message="Prediction generated successfully."
+        prediction=prediction_label,
+        prediction_probability=round(probability, 4),
+        confidence=confidence,
+        top_features=top_features,
+        message="Prediction generated successfully."
     )
 
   except KeyError as e:
